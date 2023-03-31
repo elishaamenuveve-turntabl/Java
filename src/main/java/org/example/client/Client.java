@@ -1,6 +1,6 @@
 package org.example.client;
 
-import org.example.membership.MembershipType;
+import org.example.membership.NewMembershipType;
 import org.example.trade.Trade;
 
 import java.time.LocalDate;
@@ -8,7 +8,7 @@ import java.time.LocalDate;
 public class Client {
     private String firstName;
     private String lastName;
-    private MembershipType membership;
+    private NewMembershipType membership;
     private int tradePoints = 0;
     private LocalDate dateOfLastTrade;
     private int dailyTradeNumber;
@@ -25,8 +25,9 @@ public class Client {
         if (this.canTrade()) {
             this.dailyTradeNumber += 1;
             this.dailyTradeValue += trade.getTradeValue();
+            this.addPoints();
         } else {
-            System.out.println("Error");
+            System.out.println("Client unable to add " + trade);
         }
     }
 
@@ -46,7 +47,7 @@ public class Client {
 
     private void addPoints() {
         this.tradePoints += 1;
-        this.membership = MembershipType.assignMembership(this.tradePoints);
+        this.membership = NewMembershipType.assignMembership(this.tradePoints);
     }
 
     public boolean canTrade() {
@@ -66,7 +67,8 @@ public class Client {
                 "\ndailyTradeValue: " + dailyTradeValue +
                 "\ndailyTradeNumber: " + dailyTradeNumber +
                 "\ndateOfLastTrade: " + dateOfLastTrade +
-                "\nmaximumDailyTradeValue: " + maximumDailyTradeValue;
+                "\nmaximumDailyTradeValue: " + maximumDailyTradeValue +
+                "\nmembershipType: " + (membership != null? membership : "No membership") ;
     }
 
 

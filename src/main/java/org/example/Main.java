@@ -55,17 +55,4 @@ public class Main {
 
     }
 
-//    public Trade[] randomTradeGenerator(int number) {
-//
-//        Trade[] trades = new Trade[number];
-//        for (int i = 0; i < number; i++) {
-//            int randomNumber = (int) Math.floor(Math.random()*2);
-//            if (randomNumber == 0) {
-//                trades[i] = new BondTrade("T"+(i+1), "AAP", (int) Math.floor(Math.random()*100), Math.floor(Math.random()*100), Math.floor(Math.random()*100));
-//            } else  {
-//                trades[i] = new FundTrade("T"+(i+1), "AAP", (int) Math.floor(Math.random()*100), Math.floor(Math.random()*100), Math.random()*100);
-//            }
-//        }
-//        return trades;
-//    }
 }

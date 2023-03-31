@@ -3,8 +3,6 @@ package org.example.membership;
 public abstract class MembershipType {
 
 
-    public abstract int getMaximumTrades();
-    //    public abstract void setMaximumTrades(int maximumTrades);
     public abstract boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue);
 
     public static MembershipType assignMembership(int points) {

@@ -1,22 +1,21 @@
 package org.example.trade;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public abstract class Trade {
 
-    private String id = null;
-    private String symbol = null;
-    private int quantity = 0;
-    private double price = 0;
-    private double dividend = 0;
+    private String id;
+    private String symbol;
+    private int quantity;
+    private double price;
+    private double dividend;
     private LocalDateTime localDateTime;
 
     public Trade(String id, String symbol, int quantity, double price) {
         this.id = id;
         this.symbol = symbol;
         this.quantity = quantity;
-        this.price = price;
+        setPrice(price);
         this.localDateTime = LocalDateTime.now();
     }
 
@@ -24,6 +23,7 @@ public abstract class Trade {
         this.id = id;
         this.symbol = symbol;
         this.quantity = quantity;
+        this.localDateTime = LocalDateTime.now();
     }
 
     public void buy() {
@@ -59,11 +59,13 @@ public abstract class Trade {
         return this.quantity * this.price;
     }
 
+
+    public abstract double calcDividend();
+
     public String toString() {
         return "ID: " + id + ", Symbol: " + symbol + ", Quantity: " + quantity + ", Price: " + price;
     }
 
-    public abstract double calcDividend();
     public static Trade[] randomTradeGenerator(int number) {
 
         Trade[] trades = new Trade[number];

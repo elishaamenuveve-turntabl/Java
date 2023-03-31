@@ -2,10 +2,12 @@ package org.example.account;
 
 import org.example.trade.Trade;
 
+import java.util.List;
+
 public class Account {
     private double totalTradeValue = 0;
-    private Trade[] trades = new Trade[100];
-    private int numberOfTrades = 0;
+
+    private List<Trade> trades;
 
 
     public double getTotalTradeValue() {
@@ -21,9 +23,9 @@ public class Account {
     }
 
     public void printTrades (int max) {
-        for (int i = 0; i < numberOfTrades; i++) {
-            if (trades[i].getPrice() < max){
-                System.out.println(trades[i]);
+        for (int i = 0; i < trades.size(); i++) {
+            if (trades.get(i).getPrice() < max){
+                System.out.println(trades.get(i));
             }
 
         }
@@ -31,8 +33,8 @@ public class Account {
 
     public void addTrade(Trade trade) {
         // when trades exceed trades length we will get an exception
-        trades[numberOfTrades] = trade;
-        numberOfTrades++;
+        trades.add(trade);
+
     }
 
 }

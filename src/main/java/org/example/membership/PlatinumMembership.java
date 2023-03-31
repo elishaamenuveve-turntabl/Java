@@ -1,7 +1,7 @@
 package org.example.membership;
 
 public class PlatinumMembership extends MembershipType{
-    @Override
+
     public int getMaximumTrades() {
         return Integer.MAX_VALUE;
     }

@@ -6,18 +6,8 @@ public class SilverMembership  extends MembershipType {
         return maximumTrades;
     }
 
-
     public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-        System.out.println(getMaximumTrades());
-        System.out.println("Daily Trade Number: " + dailyTradeNumber);
-        System.out.println("Daily Trade Value: " + dailyTradeValue);
-        System.out.println("Max Trade Value: " + maximumTradeValue);
-        if (dailyTradeNumber < getMaximumTrades() && dailyTradeValue < maximumTradeValue) {
-            System.out.println("True");
-            return true;
-        } else {
-            System.out.println("False");
-            return false;
-        }
+
+        return dailyTradeNumber < getMaximumTrades() && dailyTradeValue < maximumTradeValue;
     }
 }

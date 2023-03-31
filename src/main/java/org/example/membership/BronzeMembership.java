@@ -11,7 +11,7 @@ public class BronzeMembership extends MembershipType {
     }
 
     public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-        if(LocalTime.now().compareTo(LocalTime.of(10,0)) < 0) {
+        if(LocalTime.now().compareTo(LocalTime.of(8,0)) < 0) {
             return false;
         }
         if (dailyTradeNumber < this.getMaximumTrades()) {
