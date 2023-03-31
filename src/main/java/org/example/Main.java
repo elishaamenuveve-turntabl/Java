@@ -14,7 +14,9 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 //        Trader trader = new Trader("Elvis");
-//        Trade bondTrade = new BondTrade("T1", "AAPP", 100, 15.25, 120.23);
+        Trade bondTrade = new BondTrade("T1", "AAPP", 100, 15.25, 120.23);
+        bondTrade.getDividend();
+
 //
 ////        System.out.println(trader);
 ////        System.out.println(bondTrade);
@@ -25,7 +27,8 @@ public class Main {
 //        trader.addTrade(bondTrade);
 ////        System.out.println(trader);
 //
-//        Trade fundTrade = new FundTrade("T2", "AAPP", 100, 15.25, 0.12);
+        Trade fundTrade = new FundTrade("T2", "AAPP", 100, 15.25, 0.12);
+        fundTrade.getDividend();
 ////        System.out.println(fundTrade);
 //
 //        trader.addTrade(fundTrade);
@@ -54,5 +57,6 @@ public class Main {
         System.out.println(newclient);
 
     }
+
 
 }

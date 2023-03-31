@@ -4,48 +4,36 @@ import java.time.LocalTime;
 
 public enum NewMembershipType {
     BRONZE(5) {
-        public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
+        public boolean canTrade(int numberOfTradesMadeToday, double dailyTradeValue, double maximumTradeValue) {
 
-            if(LocalTime.now().isBefore(LocalTime.of(10, 0))) {
-                return false;
+            if(LocalTime.now().isAfter(LocalTime.of(10, 0))) {
+                    return numberOfTradesMadeToday < BRONZE.maximumTrades;
             }
-            if (dailyTradeNumber < this.maximumTrades) {
-                return true;
-            } else {
-                return false;
-            }
+            return false;
         }
     }, SILVER(10) {
 
-        public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-            if (dailyTradeNumber < this.maximumTrades && dailyTradeValue < maximumTradeValue) {
-                return true;
-            } else {
-                return false;
-            }
+        public boolean canTrade(int numberOfTradesMadeToday, double dailyTradeValue, double maximumTradeValue) {
+            return numberOfTradesMadeToday < SILVER.maximumTrades && dailyTradeValue < maximumTradeValue;
         }
 
     }, GOLD(20) {
-        public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-            if (dailyTradeNumber < this.maximumTrades) {
-                return true;
-            } else {
-                return false;
-            }
+        public boolean canTrade(int numberOfTradesMadeToday, double dailyTradeValue, double maximumTradeValue) {
+            return numberOfTradesMadeToday < GOLD.maximumTrades;
         }
-
     };
 
-     int maximumTrades;
+    private final int maximumTrades;
+
+
     NewMembershipType(int maximumTrades) {
         this.maximumTrades = maximumTrades;
     }
 
 
     public static NewMembershipType assignMembership(int points) {
-        if (points > 0 && points <= 10) {
-            return NewMembershipType.BRONZE;
-        } else if (points > 10 && points <= 20) {
+
+         if (points > 0 && points <= 20) {
             return NewMembershipType.SILVER;
         } else {
             return NewMembershipType.GOLD;

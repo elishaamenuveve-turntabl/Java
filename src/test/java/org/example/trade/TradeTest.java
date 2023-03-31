@@ -11,7 +11,7 @@ public class TradeTest {
 
         //arrange
         Trade cut = new BondTrade("T1", "AAP", 100, 12.5, 1.5);
-        double tradePriceTestValue = -0.012;
+        double tradePriceTestValue = 0;
 
         // act
         cut.setPrice(tradePriceTestValue);
@@ -28,9 +28,6 @@ public class TradeTest {
         cut.setPrice(100);
 
         assertEquals(1.5, cut.getDividend());
-
-
-
 
     }
 

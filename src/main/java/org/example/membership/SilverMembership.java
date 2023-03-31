@@ -7,7 +7,6 @@ public class SilverMembership  extends MembershipType {
     }
 
     public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-
         return dailyTradeNumber < getMaximumTrades() && dailyTradeValue < maximumTradeValue;
     }
 }

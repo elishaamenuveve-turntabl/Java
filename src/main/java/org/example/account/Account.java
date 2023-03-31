@@ -32,7 +32,6 @@ public class Account {
     }
 
     public void addTrade(Trade trade) {
-        // when trades exceed trades length we will get an exception
         trades.add(trade);
 
     }

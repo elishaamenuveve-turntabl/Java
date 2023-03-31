@@ -9,10 +9,6 @@ public class GoldMembership extends MembershipType {
     }
 
     public boolean canTrade(int dailyTradeNumber, double dailyTradeValue, double maximumTradeValue) {
-        if (dailyTradeNumber < this.getMaximumTrades()) {
-            return true;
-        } else {
-            return false;
-        }
+        return dailyTradeNumber < this.getMaximumTrades();
     }
 }
